@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  background-color: #0d1117;
+  color: #f1f6f9;
+  height: 100vh;
+  overflow: hidden;
+  text-shadow: 0 0 2px #00ffc8;
+}
+
+/* --- Sky & Weather Effects --- */
+.sky {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #191970, #1e90ff);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.sun {
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ffe066, #ffc107);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 20px #ffe066;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.cloud {
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  top: -30px;
+  left: 10px;
+}
+
+.cloud::after {
+  top: -20px;
+  left: 50px;
+}
+
+.cloud1 {
+  top: 120px;
+  left: -200px;
+  animation: cloudMove 60s linear infinite;
+}
+
+.cloud2 {
+  top: 180px;
+  left: -300px;
+  animation: cloudMove 90s linear infinite;
+}
+
+@keyframes cloudMove {
+  0% { left: -200px; }
+  100% { left: 100%; }
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2) 0px,
+    rgba(255, 255, 255, 0.2) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  animation: rainMove 0.5s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes rainMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 10px; }
+}
+
+/* --- Glassmorphism --- */
+.container.glass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  width: 380px;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 0 0 10px #00ffc8;
+}
+
+h1 {
+  font-size: 16px;
+  color: #00ffc8;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-family: 'Press Start 2P', monospace;
+  background: rgba(0, 255, 200, 0.1);
+  color: #00ffc8;
+  box-shadow: 0 0 5px #00ffc8;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+input[type="text"]::placeholder {
+  color: #00ffc8;
+  font-size: 10px;
+}
+
+button {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff00aa;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 0 5px #ff00aa;
+}
+
+button:hover {
+  background-color: #ff66c4;
+}
+
+#weather-info {
+  margin-top: 20px;
+}
+
+#city-name {
+  color: #00ffc8;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#temperature, #description {
+  font-size: 12px;
+  color: #ffffff;
+  margin: 4px 0;
+}
+
+#error-message {
+  color: #ff4d4d;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Hide/Show Utility */
+.hidden {
+  display: none;
+}
