@@ -3,6 +3,11 @@ Weather Oracle is a visually engaging weather app that brings real-time forecast
 
 Built using HTML, CSS, and JavaScript, it leverages the OpenWeatherMap API to fetch and display accurate weather information based on user-input city names.
 
+Preview
+
+<img width="1596" height="778" alt="Screenshot 2025-07-19 215150" src="https://github.com/user-attachments/assets/024df3db-f932-4e13-bd1b-6640208562e5" />
+
+
 🚀 Features
 🔍 Fetches real-time weather data (temperature & description)
 
